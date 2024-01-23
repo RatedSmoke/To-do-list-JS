@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Aplicación To-do list </title>
+        <title>To-do list app</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="css/style.css">
@@ -19,27 +19,20 @@
     <body>
        <div class="container">
             <div class="input-field">
-                <textarea placeholder="Ingresa tu nueva tarea"></textarea>
+                <textarea placeholder="Enter your new to-do"></textarea>
                 <i class="uil uil-notes note-icon"></i>
             </div>
 
             <ul class="todoLists">
-                <li class="list">
-                    <input type="checkbox">
-                    <span class="task">Finalizar diseño de la app</span>
-                    <i class="uil uil-trash"></i>
-                </li>
-                <li class="list">
-                    <input type="checkbox">
-                    <span class="task">Finalizar funcionalidad de la app</span>
-                    <i class="uil uil-trash"></i>
-                </li>
             </ul>
 
             <div class="pending-tasks">
-                <span>Tienes <span>0</span> tareas pendientes</span>
-                <button class="clear-button">Borrar todo</button>
+                <span>You have <span class="pending-num">no</span> pending tasks</span>
+                <button class="clear-button">Clear all</button>
             </div>
-       </div> 
+       </div>
+       
+       <!-- JavaScript -->
+       <script src="js/script.js"></script>
     </body>
 </html>
