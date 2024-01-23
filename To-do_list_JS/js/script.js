@@ -4,18 +4,22 @@ const inputField = document.querySelector(".input-field textarea"),
     pendingNum   = document.querySelector(".pending-num"),
     clearButton  = document.querySelector(".clear-button");
 
+
+// Obtener todas las tareas pendientes
 function allTasks() {
     let tasks              = document.querySelectorAll(".pending");
     pendingNum.textContent = tasks.length === 0 ? "no" : tasks.length; 
 
     let allLists           = document.querySelectorAll(".list");
 
+    // Si hay tareas, se ajusta el margen de la parte de arriba del div y el botón de Clear all se activa
     if (allLists.length > 0) {
         todoLists.style.marginTop       = "20px";
         clearButton.style.pointerEvents = "auto";
         return
     }
 
+    // Si no hay tareas, se quita el margen de la parte de arriba del div y el botón de Clear all se desactiva
     todoLists.style.marginTop         = "0px";
     clearButton.style.pointerEvents   = "none";
 }
@@ -33,13 +37,14 @@ inputField.addEventListener("keyup", (e) => {
                     <i class="uil uil-trash" onclick="deleteTask(this)"></i>
                 </li>`;
         
+        // Se interta la tarea al final y se limpia el input
         todoLists.insertAdjacentHTML("beforeend", liTag);
         inputField.value = "";
         allTasks();
     }
 });
 
-// Check y unchecking del checkbox cuando se da clic en la tarea
+// Check y unchecking del checkbox cuando se da clic en la tarea, se vuelven a contar las tareas pendientes
 function handleStatus(e) {
     const checkbox   = e.querySelector("input");
     checkbox.checked = checkbox.checked ? false : true;
@@ -47,11 +52,13 @@ function handleStatus(e) {
     allTasks();
 }
 
+// Se elimina la tarea seleccionada
 function deleteTask(e) {
     e.parentElement.remove();
     allTasks();
 }
 
+// Se eliminan todas las tareas
 clearButton.addEventListener("click", () => {
     todoLists.innerHTML = "";
     allTasks();
