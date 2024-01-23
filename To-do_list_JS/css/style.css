@@ -137,8 +137,15 @@ textarea::-webkit-scrollbar {
     border-radius: 4px;
     cursor: pointer;
     pointer-events: none;
+    white-space: nowrap;
 }
 
 .clear-button:hover {
     background-color: #0e4bf1;
+}
+
+@media screen and (max-width: 350px) {
+    .container {
+        padding: 25px 10px;
+    }
 }
